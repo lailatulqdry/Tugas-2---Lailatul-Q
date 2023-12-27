@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, } from 'react-native'
 import React, {useState, useEffect} from 'react'
 
 const Quran = () => {
@@ -19,16 +19,31 @@ const Quran = () => {
   useEffect(() => {
     getData();
   });
+  
   return (
     <View>
       <ScrollView>
+        <Text style={{
+          padding: 30,
+          textAlign: 'center',
+          fontSize: 20,
+          fontWeight: 'bold',
+          color: 'white',
+          backgroundColor: 'black',
+        }}>Al-Qur'an</Text>
         {dataQuran?.map((data, index) => {
           return (
+            <View style={{flex:1, backgroundColor: 'white'}}>
             <TouchableOpacity key={index}>
-              <Text style={styles.ayat}>
-                {data.nomor} - {data.nama} - {data.namaLatin}
+              <Text style={styles.nomor}>
+                {data.nomor}. 
+                {data.namaLatin}
+              </Text>
+              <Text style={styles.nama}>
+                {data.nama}
               </Text>
             </TouchableOpacity>
+            </View>
           );
         })}
       </ScrollView>
@@ -36,11 +51,25 @@ const Quran = () => {
   )
 }
 
+
 export default Quran;
 
 const styles = StyleSheet.create({
-  ayat: {
-    fontSize: 21,
-    fontWeight: 'normal',
+  nomor: {
+    fontWeight: 'bold',
+    fontSize: 15,
+    flexDirection: 'row',
+    flex: 1,
+    color: 'black',
+    marginTop: 10,
+    backgroundColor: 'beige'
+  },
+  nama: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    color: 'black',
+    backgroundColor: 'beige'
   },
 });
