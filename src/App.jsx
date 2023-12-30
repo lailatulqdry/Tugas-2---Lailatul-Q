@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import awal from './screen/awal';
 import Quran from './screen/Quran';
-import history from './screen/history';
+import detail from './screen/detail';
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -14,7 +14,7 @@ const Tabs = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Quran" component={QuranScreen} />
-      <Tab.Screen name="history" component={historyScreen} />
+      <Tab.Screen name="detail" component={detailScreen} />
     </Tab.Navigator>
     )
   }
@@ -35,9 +35,9 @@ function App() {
           component={Quran}
         />
         <Stack.Screen
-          name="history"
-          options={{ headerShown: false }}
-          component={history}
+          name="detail"
+          options={{ headerShown: true }}
+          component={detail}
         />
         </Stack.Navigator>
     </NavigationContainer>

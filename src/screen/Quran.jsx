@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import React, {useState, useEffect} from 'react'
 
-const Quran = () => {
+const Quran = ({navigation}) => {
   //1. Buat state / penyimpanan data
   const [dataQuran, setDataQuran] = useState(null);
   //2. Fungsi untuk mengambil data dari API
@@ -34,7 +34,7 @@ const Quran = () => {
         {dataQuran?.map((data, index) => {
           return (
             <View style={{flex:1, backgroundColor: 'white'}}>
-            <TouchableOpacity key={index}>
+            <TouchableOpacity key={index} onPress={() => navigation.navigate('detail')}>
               <Text style={styles.nomor}>
                 {data.nomor}. 
                 {data.namaLatin}
